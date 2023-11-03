@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -20,15 +21,15 @@
 
     <script type="text/javascript">
         /***********************************************
-        * Display time of last visit script- by JavaScriptKit.com
+        * Display time of the last visit script - by JavaScriptKit.com
         * This notice MUST stay intact for use
         * Visit JavaScript Kit at http://www.javascriptkit.com/ for this script and more
         ***********************************************/
 
-        var days = 730; // days until cookie expires = 2 years.
+        var days = 730; // days until the cookie expires = 2 years.
         var lastvisit = new Object();
         var firstvisitmsg = "This is your first visit to this page. Welcome!";
-        lastvisit.subsequentvisitmsg = "Welcome back visitor! Your last visit was on <b>[displaydate]</b>";
+        lastvisit.subsequentvisitmsg = "Welcome back, visitor! Your last visit was on <b>[displaydate]</b>";
 
         lastvisit.getCookie = function (Name) {
             var re = new RegExp(Name + "=[^;]+", "i");
@@ -39,8 +40,7 @@
 
         lastvisit.setCookie = function (name, value, days) {
             var expireDate = new Date();
-
-            var expstring = expireDate.setDate(expireDate.getDate() + parseInt(days));
+            expireDate.setDate(expireDate.getDate() + parseInt(days));
             document.cookie = name + "=" + value + "; expires=" + expireDate.toGMTString() + "; path=/";
         }
 
@@ -49,15 +49,13 @@
             if (lastvisit.getCookie("visitc") == "") {
                 lastvisit.setCookie("visitc", wh, days);
                 document.write(firstvisitmsg);
-            }
-
-            else {
+            } else {
                 var lv = lastvisit.getCookie("visitc");
                 var lvp = Date.parse(lv);
                 var now = new Date();
                 now.setTime(lvp);
-                var day = new Array("Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat");
-                var month = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+                var day = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+                var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                 var dd = now.getDate();
                 var dy = now.getDay();
                 dy = day[dy];
@@ -75,7 +73,7 @@
                 var secs = now.getSeconds();
                 if (secs < 10) { secs = "0" + secs }
                 var dispDate = dy + ", " + mn + " " + dd + ", " + yy + " " + hh + ":" + mins + ":" + secs + " " + ampm
-                document.write(lastvisit.subsequentvisitmsg.replace("\[displaydate\]", dispDate))
+                document.write(lastvisit.subsequentvisitmsg.replace("[displaydate]", dispDate))
             }
 
             lastvisit.setCookie("visitc", wh, days);
@@ -99,7 +97,7 @@
             </ul>
         </div>
 
-        <h1>Here are Top 3 Christmas Markets!</h1>
+        <h1>Here are the Top 3 Christmas Markets!</h1>
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/rVFGEJrZFJ4" title="YouTube video player"
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -108,19 +106,18 @@
         <div>
             <a class="example-image-link" href="https://imgur.com/Wlky95f" data-lightbox="example-set"
                 data-title="Click the right half of the image to move forward."><img class="example-image"
-                    src="https://imgur.com/Wlky95f" alt="" width="350px" /></a>
+                    src="https://i.imgur.com/Wlky95f.jpg" alt="" width="350px" /></a>
 
             <a class="example-image-link" href="https://imgur.com/zrLal8d" data-lightbox="example-set"
                 data-title="The next image in the set is preloaded as you're viewing."><img class="example-image"
-                    src="https://imgur.com/zrLal8d" width="350px" alt="" /></a>
+                    src="https://i.imgur.com/zrLal8d.jpg" width="350px" alt="" /></a>
 
             <a class="example-image-link" href="https://imgur.com/9yL6W3V" data-lightbox="example-set"
                 data-title="Click anywhere outside the image or the X to the right to close."><img class="example-image"
-                    src="https://imgur.com/9yL6W3V" alt="" width="350px" /></a>
+                    src="https://i.imgur.com/9yL6W3V.jpg" alt="" width="350px" /></a>
         </div>
-        <script src="js/lightbox-plus-jquery.min.js"></script>
     </div>
-
+    <script src="js/lightbox-plus-jquery.min.js"></script>
 </body>
 
 </html>
